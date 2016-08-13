@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		131AD9E11D5C3699005BEDB9 /* FEVreadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131AD9E01D5C3699005BEDB9 /* FEVreadings.swift */; };
+		131AD9E31D5C36FE005BEDB9 /* FEVreadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131AD9E21D5C36FE005BEDB9 /* FEVreadings.swift */; };
+		139CABA51D10C9AD00C9CA9A /* ChartUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139CABA41D10C9AD00C9CA9A /* ChartUIView.swift */; };
+		139CABAB1D12285800C9CA9A /* TrendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139CABAA1D12285800C9CA9A /* TrendTableViewController.swift */; };
+		13BD39DF1CF683BE00262EEF /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BD39DE1CF683BE00262EEF /* Reading.swift */; };
+		13BD39E31CF6A52000262EEF /* FEVreadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BD39E21CF6A52000262EEF /* FEVreadingListTableViewController.swift */; };
+		13C8382E1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */; };
+		13C838351CF3DB6400B3F383 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C838341CF3DB6400B3F383 /* HealthKit.framework */; };
+		13F7CEDE1CE8F73900CB61C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F7CEDD1CE8F73900CB61C6 /* AppDelegate.swift */; };
+		13F7CEE51CE8F73900CB61C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F7CEE31CE8F73900CB61C6 /* Main.storyboard */; };
+		13F7CEE71CE8F73900CB61C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F7CEE61CE8F73900CB61C6 /* Assets.xcassets */; };
+		13F7CEEA1CE8F73900CB61C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F7CEE81CE8F73900CB61C6 /* LaunchScreen.storyboard */; };
+		13F7CEF51CE8F73900CB61C6 /* AsthmaHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F7CEF41CE8F73900CB61C6 /* AsthmaHelperTests.swift */; };
+		13F7CF001CE8F73900CB61C6 /* AsthmaHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F7CEFF1CE8F73900CB61C6 /* AsthmaHelperUITests.swift */; };
+		13F7CF881CEC07CE00CB61C6 /* MyInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F7CF871CEC07CE00CB61C6 /* MyInfoTableViewController.swift */; };
+		13FF0A081CEFA8E9003DFDDF /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13FF0A061CEFA8E9003DFDDF /* UserModel.xcdatamodeld */; };
+		13FF0A0B1CEFAF53003DFDDF /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF0A091CEFAF53003DFDDF /* User+CoreDataProperties.swift */; };
+		13FF0A0C1CEFAF53003DFDDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF0A0A1CEFAF53003DFDDF /* User.swift */; };
+		13FF0A0E1CEFAFDE003DFDDF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF0A0D1CEFAFDE003DFDDF /* DataController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		13F7CEF11CE8F73900CB61C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13F7CED21CE8F73900CB61C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13F7CED91CE8F73900CB61C6;
+			remoteInfo = AsthmaHelper;
+		};
+		13F7CEFC1CE8F73900CB61C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13F7CED21CE8F73900CB61C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13F7CED91CE8F73900CB61C6;
+			remoteInfo = AsthmaHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		131AD9E01D5C3699005BEDB9 /* FEVreadings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadings.swift; sourceTree = "<group>"; };
+		131AD9E21D5C36FE005BEDB9 /* FEVreadings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadings.swift; sourceTree = "<group>"; };
+		139CABA41D10C9AD00C9CA9A /* ChartUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartUIView.swift; sourceTree = "<group>"; };
+		139CABAA1D12285800C9CA9A /* TrendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendTableViewController.swift; sourceTree = "<group>"; };
+		13BD39DE1CF683BE00262EEF /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
+		13BD39E21CF6A52000262EEF /* FEVreadingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadingListTableViewController.swift; sourceTree = "<group>"; };
+		13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadingTableViewController.swift; sourceTree = "<group>"; };
+		13C838341CF3DB6400B3F383 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		13C838361CF3DB6400B3F383 /* AsthmaHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AsthmaHelper.entitlements; sourceTree = "<group>"; };
+		13F7CEDA1CE8F73900CB61C6 /* AsthmaHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13F7CEDD1CE8F73900CB61C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		13F7CEE41CE8F73900CB61C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13F7CEE61CE8F73900CB61C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13F7CEE91CE8F73900CB61C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		13F7CEEB1CE8F73900CB61C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13F7CEF01CE8F73900CB61C6 /* AsthmaHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13F7CEF41CE8F73900CB61C6 /* AsthmaHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaHelperTests.swift; sourceTree = "<group>"; };
+		13F7CEF61CE8F73900CB61C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13F7CEFB1CE8F73900CB61C6 /* AsthmaHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13F7CEFF1CE8F73900CB61C6 /* AsthmaHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaHelperUITests.swift; sourceTree = "<group>"; };
+		13F7CF011CE8F73900CB61C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13F7CF871CEC07CE00CB61C6 /* MyInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewController.swift; sourceTree = "<group>"; };
+		13FF0A071CEFA8E9003DFDDF /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
+		13FF0A091CEFAF53003DFDDF /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		13FF0A0A1CEFAF53003DFDDF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		13FF0A0D1CEFAFDE003DFDDF /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13F7CED71CE8F73900CB61C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13C838351CF3DB6400B3F383 /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13F7CEED1CE8F73900CB61C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13F7CEF81CE8F73900CB61C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		133D42871D471DD50096BC72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13BD39DE1CF683BE00262EEF /* Reading.swift */,
+				131AD9E01D5C3699005BEDB9 /* FEVreadings.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		13C838331CF1FE4B00B3F383 /* Data Reading */ = {
+			isa = PBXGroup;
+			children = (
+				13BD39E21CF6A52000262EEF /* FEVreadingListTableViewController.swift */,
+				13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */,
+			);
+			name = "Data Reading";
+			sourceTree = "<group>";
+		};
+		13F7CED11CE8F73900CB61C6 = {
+			isa = PBXGroup;
+			children = (
+				13C838341CF3DB6400B3F383 /* HealthKit.framework */,
+				13FF0A091CEFAF53003DFDDF /* User+CoreDataProperties.swift */,
+				13FF0A0A1CEFAF53003DFDDF /* User.swift */,
+				13F7CEDC1CE8F73900CB61C6 /* AsthmaHelper */,
+				13F7CEF31CE8F73900CB61C6 /* AsthmaHelperTests */,
+				13F7CEFE1CE8F73900CB61C6 /* AsthmaHelperUITests */,
+				13F7CEDB1CE8F73900CB61C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		13F7CEDB1CE8F73900CB61C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13F7CEDA1CE8F73900CB61C6 /* AsthmaHelper.app */,
+				13F7CEF01CE8F73900CB61C6 /* AsthmaHelperTests.xctest */,
+				13F7CEFB1CE8F73900CB61C6 /* AsthmaHelperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13F7CEDC1CE8F73900CB61C6 /* AsthmaHelper */ = {
+			isa = PBXGroup;
+			children = (
+				133D42871D471DD50096BC72 /* Model */,
+				13C838361CF3DB6400B3F383 /* AsthmaHelper.entitlements */,
+				13F7CEDD1CE8F73900CB61C6 /* AppDelegate.swift */,
+				139CABA41D10C9AD00C9CA9A /* ChartUIView.swift */,
+				139CABAA1D12285800C9CA9A /* TrendTableViewController.swift */,
+				13F7CEE31CE8F73900CB61C6 /* Main.storyboard */,
+				13C838331CF1FE4B00B3F383 /* Data Reading */,
+				13F7CF871CEC07CE00CB61C6 /* MyInfoTableViewController.swift */,
+				13F7CEE61CE8F73900CB61C6 /* Assets.xcassets */,
+				13F7CEE81CE8F73900CB61C6 /* LaunchScreen.storyboard */,
+				13F7CEEB1CE8F73900CB61C6 /* Info.plist */,
+				13FF0A061CEFA8E9003DFDDF /* UserModel.xcdatamodeld */,
+				13FF0A0D1CEFAFDE003DFDDF /* DataController.swift */,
+			);
+			path = AsthmaHelper;
+			sourceTree = "<group>";
+		};
+		13F7CEF31CE8F73900CB61C6 /* AsthmaHelperTests */ = {
+			isa = PBXGroup;
+			children = (
+				13F7CEF41CE8F73900CB61C6 /* AsthmaHelperTests.swift */,
+				13F7CEF61CE8F73900CB61C6 /* Info.plist */,
+				131AD9E21D5C36FE005BEDB9 /* FEVreadings.swift */,
+			);
+			path = AsthmaHelperTests;
+			sourceTree = "<group>";
+		};
+		13F7CEFE1CE8F73900CB61C6 /* AsthmaHelperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				13F7CEFF1CE8F73900CB61C6 /* AsthmaHelperUITests.swift */,
+				13F7CF011CE8F73900CB61C6 /* Info.plist */,
+			);
+			path = AsthmaHelperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13F7CED91CE8F73900CB61C6 /* AsthmaHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13F7CF041CE8F73900CB61C6 /* Build configuration list for PBXNativeTarget "AsthmaHelper" */;
+			buildPhases = (
+				13F7CED61CE8F73900CB61C6 /* Sources */,
+				13F7CED71CE8F73900CB61C6 /* Frameworks */,
+				13F7CED81CE8F73900CB61C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AsthmaHelper;
+			productName = AsthmaHelper;
+			productReference = 13F7CEDA1CE8F73900CB61C6 /* AsthmaHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		13F7CEEF1CE8F73900CB61C6 /* AsthmaHelperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13F7CF071CE8F73900CB61C6 /* Build configuration list for PBXNativeTarget "AsthmaHelperTests" */;
+			buildPhases = (
+				13F7CEEC1CE8F73900CB61C6 /* Sources */,
+				13F7CEED1CE8F73900CB61C6 /* Frameworks */,
+				13F7CEEE1CE8F73900CB61C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13F7CEF21CE8F73900CB61C6 /* PBXTargetDependency */,
+			);
+			name = AsthmaHelperTests;
+			productName = AsthmaHelperTests;
+			productReference = 13F7CEF01CE8F73900CB61C6 /* AsthmaHelperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13F7CEFA1CE8F73900CB61C6 /* AsthmaHelperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13F7CF0A1CE8F73900CB61C6 /* Build configuration list for PBXNativeTarget "AsthmaHelperUITests" */;
+			buildPhases = (
+				13F7CEF71CE8F73900CB61C6 /* Sources */,
+				13F7CEF81CE8F73900CB61C6 /* Frameworks */,
+				13F7CEF91CE8F73900CB61C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13F7CEFD1CE8F73900CB61C6 /* PBXTargetDependency */,
+			);
+			name = AsthmaHelperUITests;
+			productName = AsthmaHelperUITests;
+			productReference = 13F7CEFB1CE8F73900CB61C6 /* AsthmaHelperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		13F7CED21CE8F73900CB61C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Xu Weng";
+				TargetAttributes = {
+					13F7CED91CE8F73900CB61C6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8PRDT85Q28;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					13F7CEEF1CE8F73900CB61C6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8PRDT85Q28;
+						TestTargetID = 13F7CED91CE8F73900CB61C6;
+					};
+					13F7CEFA1CE8F73900CB61C6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8PRDT85Q28;
+						TestTargetID = 13F7CED91CE8F73900CB61C6;
+					};
+				};
+			};
+			buildConfigurationList = 13F7CED51CE8F73900CB61C6 /* Build configuration list for PBXProject "AsthmaHelper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 13F7CED11CE8F73900CB61C6;
+			productRefGroup = 13F7CEDB1CE8F73900CB61C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13F7CED91CE8F73900CB61C6 /* AsthmaHelper */,
+				13F7CEEF1CE8F73900CB61C6 /* AsthmaHelperTests */,
+				13F7CEFA1CE8F73900CB61C6 /* AsthmaHelperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13F7CED81CE8F73900CB61C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13F7CEEA1CE8F73900CB61C6 /* LaunchScreen.storyboard in Resources */,
+				13F7CEE71CE8F73900CB61C6 /* Assets.xcassets in Resources */,
+				13F7CEE51CE8F73900CB61C6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13F7CEEE1CE8F73900CB61C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13F7CEF91CE8F73900CB61C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13F7CED61CE8F73900CB61C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13BD39E31CF6A52000262EEF /* FEVreadingListTableViewController.swift in Sources */,
+				13FF0A081CEFA8E9003DFDDF /* UserModel.xcdatamodeld in Sources */,
+				13FF0A0B1CEFAF53003DFDDF /* User+CoreDataProperties.swift in Sources */,
+				139CABA51D10C9AD00C9CA9A /* ChartUIView.swift in Sources */,
+				13C8382E1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift in Sources */,
+				13BD39DF1CF683BE00262EEF /* Reading.swift in Sources */,
+				13F7CF881CEC07CE00CB61C6 /* MyInfoTableViewController.swift in Sources */,
+				131AD9E11D5C3699005BEDB9 /* FEVreadings.swift in Sources */,
+				13F7CEDE1CE8F73900CB61C6 /* AppDelegate.swift in Sources */,
+				13FF0A0E1CEFAFDE003DFDDF /* DataController.swift in Sources */,
+				139CABAB1D12285800C9CA9A /* TrendTableViewController.swift in Sources */,
+				13FF0A0C1CEFAF53003DFDDF /* User.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13F7CEEC1CE8F73900CB61C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				131AD9E31D5C36FE005BEDB9 /* FEVreadings.swift in Sources */,
+				13F7CEF51CE8F73900CB61C6 /* AsthmaHelperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13F7CEF71CE8F73900CB61C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13F7CF001CE8F73900CB61C6 /* AsthmaHelperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		13F7CEF21CE8F73900CB61C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13F7CED91CE8F73900CB61C6 /* AsthmaHelper */;
+			targetProxy = 13F7CEF11CE8F73900CB61C6 /* PBXContainerItemProxy */;
+		};
+		13F7CEFD1CE8F73900CB61C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13F7CED91CE8F73900CB61C6 /* AsthmaHelper */;
+			targetProxy = 13F7CEFC1CE8F73900CB61C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		13F7CEE31CE8F73900CB61C6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13F7CEE41CE8F73900CB61C6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		13F7CEE81CE8F73900CB61C6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13F7CEE91CE8F73900CB61C6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		13F7CF021CE8F73900CB61C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		13F7CF031CE8F73900CB61C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13F7CF051CE8F73900CB61C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AsthmaHelper/AsthmaHelper.entitlements;
+				INFOPLIST_FILE = AsthmaHelper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.asthmaHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "590bb18e-043f-4ab1-bb99-4f712f349a47";
+			};
+			name = Debug;
+		};
+		13F7CF061CE8F73900CB61C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AsthmaHelper/AsthmaHelper.entitlements;
+				INFOPLIST_FILE = AsthmaHelper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.asthmaHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "590bb18e-043f-4ab1-bb99-4f712f349a47";
+			};
+			name = Release;
+		};
+		13F7CF081CE8F73900CB61C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AsthmaHelperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Company.AsthmaHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AsthmaHelper.app/AsthmaHelper";
+			};
+			name = Debug;
+		};
+		13F7CF091CE8F73900CB61C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AsthmaHelperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Company.AsthmaHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AsthmaHelper.app/AsthmaHelper";
+			};
+			name = Release;
+		};
+		13F7CF0B1CE8F73900CB61C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AsthmaHelperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Company.AsthmaHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AsthmaHelper;
+			};
+			name = Debug;
+		};
+		13F7CF0C1CE8F73900CB61C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AsthmaHelperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Company.AsthmaHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AsthmaHelper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13F7CED51CE8F73900CB61C6 /* Build configuration list for PBXProject "AsthmaHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13F7CF021CE8F73900CB61C6 /* Debug */,
+				13F7CF031CE8F73900CB61C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13F7CF041CE8F73900CB61C6 /* Build configuration list for PBXNativeTarget "AsthmaHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13F7CF051CE8F73900CB61C6 /* Debug */,
+				13F7CF061CE8F73900CB61C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13F7CF071CE8F73900CB61C6 /* Build configuration list for PBXNativeTarget "AsthmaHelperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13F7CF081CE8F73900CB61C6 /* Debug */,
+				13F7CF091CE8F73900CB61C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13F7CF0A1CE8F73900CB61C6 /* Build configuration list for PBXNativeTarget "AsthmaHelperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13F7CF0B1CE8F73900CB61C6 /* Debug */,
+				13F7CF0C1CE8F73900CB61C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		13FF0A061CEFA8E9003DFDDF /* UserModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				13FF0A071CEFA8E9003DFDDF /* UserModel.xcdatamodel */,
+			);
+			currentVersion = 13FF0A071CEFA8E9003DFDDF /* UserModel.xcdatamodel */;
+			path = UserModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 13F7CED21CE8F73900CB61C6 /* Project object */;
+}
