@@ -6,16 +6,16 @@
 //  Copyright © 2016 Xu Weng. All rights reserved.
 //
 
-import Foundation
+// can use anchor query to improve efficiency 
+// can use HKstatistics options to ask for query ahead of time
 
-class FEVreadings: NSObject {
-    var reading = [Reading]()
-    var prop1 = 1
-    static var list = [Reading]()
-    class func getOne() -> Int {
-        return 1
+import Foundation
+import HealthKit
+
+class FEVreadings: Readings {
+    init() {
+        super.init(healthType: Readings.FEVhealthType)
     }
-    func getTwo() -> Int {
-        return 2
-    }
+    
+    
 }

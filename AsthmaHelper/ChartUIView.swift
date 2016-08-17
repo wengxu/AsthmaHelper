@@ -207,11 +207,11 @@ class ChartUIView: UIView {
                     if let quantity = statistics.averageQuantity() {
                         let value = Double(quantity.doubleValueForUnit(HKUnit.literUnit()))
                         let date = statistics.startDate
-                        self.FEVdataPoints.append(Reading(date: date, location: "", reading: value))
+                        self.FEVdataPoints.append(Reading(date: date, location: "", reading: value, id: NSUUID.init()))
                         
                     }
                     else {
-                        self.FEVdataPoints.append(Reading(date: statistics.startDate, location: "", reading: -1))
+                        self.FEVdataPoints.append(Reading(date: statistics.startDate, location: "", reading: -1, id: NSUUID.init()))
                     }
                     //if (self.FEVdataPoints.count)
                     print(String(statistics.startDate))
@@ -248,7 +248,8 @@ class ChartUIView: UIView {
                     let location = ((sample.metadata?["location"]) != nil) ? sample.metadata?["location"] as? String : ""
                     let date = sample.startDate
                     let reading = sample.quantity.doubleValueForUnit(HKUnit.literUnit())
-                    let readingItem = Reading.init(date: date, location: location!, reading: reading)
+                    let id = sample.UUID
+                    let readingItem = Reading.init(date: date, location: location!, reading: reading, id: id)
                     readings.append(readingItem)
                 }
                 if readings.count > 0 {

@@ -9,18 +9,18 @@
 import UIKit
 
 class Reading: NSObject {
+    var id: NSUUID
     var date: NSDate
     var location: String
     var reading: Double
-    var abc: Int
     
     override var description: String {return " ** Reading: \(String(reading)) and Date: \(String(date)) ** "}
     
-    init(date: NSDate, location: String, reading: Double ) {
+    init(date: NSDate, location: String, reading: Double, id: NSUUID) {
         self.date = date
         self.location = location
         self.reading = reading
-        self.abc = 1
+        self.id = id
     }
     
     func getDateAndTimeStr() -> String {
@@ -43,13 +43,5 @@ class Reading: NSObject {
     
     func desc() -> String {
         return "** Reading: \(String(reading)) and Date: \(String(date)) **"
-    }
-    
-    func getOne() -> Int {
-        return 1
-    }
-    
-    class func getTwo() -> Int {
-        return 2
     }
 }

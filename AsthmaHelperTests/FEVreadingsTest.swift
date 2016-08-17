@@ -1,8 +1,8 @@
 //
-//  FEVreadings.swift
+//  FEVreadingsTest.swift
 //  AsthmaHelper
 //
-//  Created by Xu Weng on 8/11/16.
+//  Created by Xu Weng on 8/12/16.
 //  Copyright © 2016 Xu Weng. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import XCTest
 
 @testable import AsthmaHelper
 
-class FEVreadings: XCTestCase {
+class FEVreadingsTest: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -25,16 +25,8 @@ class FEVreadings: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        //XCTAssert(<#T##expression: BooleanType##BooleanType#>)
-        var a = Reading.init(date: NSDate(), location: "", reading: 1)
-        var b = Reading.getTwo()
-        
-        
-        
-        
-        //XCTAssertEqual(FEVreadings., 1, "yes'")
     }
-
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {

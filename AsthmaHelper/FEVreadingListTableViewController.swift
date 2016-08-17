@@ -115,7 +115,8 @@ class FEVreadingListTableViewController: UITableViewController {
                     let location = ((sample.metadata?["location"]) != nil) ? sample.metadata?["location"] as? String : ""
                     let date = sample.startDate
                     let reading = sample.quantity.doubleValueForUnit(HKUnit.literUnit())
-                    let readingItem = Reading.init(date: date, location: location!, reading: reading)
+                    let id = sample.UUID
+                    let readingItem = Reading.init(date: date, location: location!, reading: reading, id: id)
                     self.readings.append(readingItem)
                 }
                 print("the sample loop is executed \(i) times ")

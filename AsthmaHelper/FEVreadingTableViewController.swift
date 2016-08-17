@@ -69,7 +69,7 @@ class FEVreadingTableViewController: UITableViewController, CLLocationManagerDel
             dateTableViewCell.detailTextLabel?.text = df.stringFromDate(NSDate())
             df.dateFormat = "h:mm a"
             timeTableViewCell.detailTextLabel?.text = df.stringFromDate(NSDate())
-            reading = Reading(date: NSDate(), location: "", reading: 0)
+            reading = Reading(date: NSDate(), location: "", reading: 0, id: NSUUID.init())
             //locationTableViewCell.detailTextLabel?.text = ""
             
             // setup location
