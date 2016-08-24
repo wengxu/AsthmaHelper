@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import AsthmaHelper
+
 class AsthmaHelperUITests: XCTestCase {
         
     override func setUp() {
@@ -31,6 +33,12 @@ class AsthmaHelperUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+    }
+    
+    func test() {
+        XCUIApplication().tabBars.buttons["Trend"].tap()
+        
     }
     
 }

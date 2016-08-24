@@ -80,12 +80,6 @@ class MyInfoTableViewController: UITableViewController, UITextFieldDelegate, UIP
             fatalError("Error fetched user \(error)")
         }
         askPermission()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWvillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {

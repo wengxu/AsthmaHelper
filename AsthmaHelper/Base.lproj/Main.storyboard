@@ -448,19 +448,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0t-Pp-HWv" customClass="ChartUIView" customModule="AsthmaHelper" customModuleProvider="target">
-                                                    <rect key="frame" x="150" y="36" width="300" height="250"/>
+                                                    <rect key="frame" x="157" y="8" width="303" height="291"/>
                                                     <color key="backgroundColor" red="0.41859921329999999" green="1" blue="0.30703642370000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="FEV%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OU-JO-LPs">
-                                                    <rect key="frame" x="266" y="8" width="44" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="E0t-Pp-HWv" firstAttribute="centerY" secondItem="2OA-18-Xeq" secondAttribute="centerY" id="Jpv-aa-6gp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="E0t-Pp-HWv" secondAttribute="trailing" constant="1" id="PMs-m7-btR"/>
                                                 <constraint firstItem="E0t-Pp-HWv" firstAttribute="centerX" secondItem="2OA-18-Xeq" secondAttribute="centerX" id="PNY-zr-xhC"/>
-                                                <constraint firstItem="6OU-JO-LPs" firstAttribute="centerX" secondItem="2OA-18-Xeq" secondAttribute="centerX" id="Vq0-6A-Sds"/>
+                                                <constraint firstItem="E0t-Pp-HWv" firstAttribute="leading" secondItem="2OA-18-Xeq" secondAttribute="leadingMargin" constant="1" id="Q4m-sJ-W97"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		131AD9E11D5C3699005BEDB9 /* FEVreadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131AD9E01D5C3699005BEDB9 /* FEVreadings.swift */; };
+		134E14E11D6617D000139F62 /* ControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E14E01D6617D000139F62 /* ControllerUtil.swift */; };
+		135726691D6BB5B50074B1C6 /* ChartUIViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135726681D6BB5B50074B1C6 /* ChartUIViewTest.swift */; };
 		139A6A5E1D64A350009C047A /* ReadingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139A6A5D1D64A350009C047A /* ReadingsTest.swift */; };
 		139A6A601D64B244009C047A /* ChartReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139A6A5F1D64B244009C047A /* ChartReadings.swift */; };
 		139A6A621D64B379009C047A /* ChartReadingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139A6A611D64B379009C047A /* ChartReadingsTest.swift */; };
@@ -15,6 +17,7 @@
 		139CABAB1D12285800C9CA9A /* TrendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139CABAA1D12285800C9CA9A /* TrendTableViewController.swift */; };
 		13BD39DF1CF683BE00262EEF /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BD39DE1CF683BE00262EEF /* Reading.swift */; };
 		13BD39E31CF6A52000262EEF /* FEVreadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BD39E21CF6A52000262EEF /* FEVreadingListTableViewController.swift */; };
+		13BED9771D67563500977907 /* TrendViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BED9761D67563500977907 /* TrendViewControllerTest.swift */; };
 		13C8382E1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */; };
 		13C838351CF3DB6400B3F383 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C838341CF3DB6400B3F383 /* HealthKit.framework */; };
 		13E5E7AD1D5EC03700319584 /* FEVreadingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5E7AC1D5EC03700319584 /* FEVreadingsTest.swift */; };
@@ -51,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		131AD9E01D5C3699005BEDB9 /* FEVreadings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadings.swift; sourceTree = "<group>"; };
+		134E14E01D6617D000139F62 /* ControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerUtil.swift; sourceTree = "<group>"; };
+		135726681D6BB5B50074B1C6 /* ChartUIViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartUIViewTest.swift; sourceTree = "<group>"; };
 		139A6A5D1D64A350009C047A /* ReadingsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsTest.swift; sourceTree = "<group>"; };
 		139A6A5F1D64B244009C047A /* ChartReadings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartReadings.swift; sourceTree = "<group>"; };
 		139A6A611D64B379009C047A /* ChartReadingsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartReadingsTest.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 		139CABAA1D12285800C9CA9A /* TrendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendTableViewController.swift; sourceTree = "<group>"; };
 		13BD39DE1CF683BE00262EEF /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		13BD39E21CF6A52000262EEF /* FEVreadingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadingListTableViewController.swift; sourceTree = "<group>"; };
+		13BED9761D67563500977907 /* TrendViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendViewControllerTest.swift; sourceTree = "<group>"; };
 		13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadingTableViewController.swift; sourceTree = "<group>"; };
 		13C838341CF3DB6400B3F383 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		13C838361CF3DB6400B3F383 /* AsthmaHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AsthmaHelper.entitlements; sourceTree = "<group>"; };
@@ -119,13 +125,24 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		13C838331CF1FE4B00B3F383 /* Data Reading */ = {
+		134E14DF1D65F30500139F62 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				139CABA41D10C9AD00C9CA9A /* ChartUIView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		13C838331CF1FE4B00B3F383 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				13F7CF871CEC07CE00CB61C6 /* MyInfoTableViewController.swift */,
 				13BD39E21CF6A52000262EEF /* FEVreadingListTableViewController.swift */,
 				13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */,
+				139CABAA1D12285800C9CA9A /* TrendTableViewController.swift */,
+				134E14E01D6617D000139F62 /* ControllerUtil.swift */,
 			);
-			name = "Data Reading";
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		13F7CED11CE8F73900CB61C6 = {
@@ -154,14 +171,12 @@
 		13F7CEDC1CE8F73900CB61C6 /* AsthmaHelper */ = {
 			isa = PBXGroup;
 			children = (
+				134E14DF1D65F30500139F62 /* View */,
 				133D42871D471DD50096BC72 /* Model */,
 				13C838361CF3DB6400B3F383 /* AsthmaHelper.entitlements */,
 				13F7CEDD1CE8F73900CB61C6 /* AppDelegate.swift */,
-				139CABA41D10C9AD00C9CA9A /* ChartUIView.swift */,
-				139CABAA1D12285800C9CA9A /* TrendTableViewController.swift */,
 				13F7CEE31CE8F73900CB61C6 /* Main.storyboard */,
-				13C838331CF1FE4B00B3F383 /* Data Reading */,
-				13F7CF871CEC07CE00CB61C6 /* MyInfoTableViewController.swift */,
+				13C838331CF1FE4B00B3F383 /* Controller */,
 				13F7CEE61CE8F73900CB61C6 /* Assets.xcassets */,
 				13F7CEE81CE8F73900CB61C6 /* LaunchScreen.storyboard */,
 				13F7CEEB1CE8F73900CB61C6 /* Info.plist */,
@@ -188,6 +203,8 @@
 			children = (
 				13F7CEFF1CE8F73900CB61C6 /* AsthmaHelperUITests.swift */,
 				13F7CF011CE8F73900CB61C6 /* Info.plist */,
+				13BED9761D67563500977907 /* TrendViewControllerTest.swift */,
+				135726681D6BB5B50074B1C6 /* ChartUIViewTest.swift */,
 			);
 			path = AsthmaHelperUITests;
 			sourceTree = "<group>";
@@ -340,6 +357,7 @@
 				13F7CF881CEC07CE00CB61C6 /* MyInfoTableViewController.swift in Sources */,
 				131AD9E11D5C3699005BEDB9 /* FEVreadings.swift in Sources */,
 				13F7CEDE1CE8F73900CB61C6 /* AppDelegate.swift in Sources */,
+				134E14E11D6617D000139F62 /* ControllerUtil.swift in Sources */,
 				13FF0A0E1CEFAFDE003DFDDF /* DataController.swift in Sources */,
 				13E5E7AF1D6164B900319584 /* Readings.swift in Sources */,
 				139A6A601D64B244009C047A /* ChartReadings.swift in Sources */,
@@ -363,7 +381,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13BED9771D67563500977907 /* TrendViewControllerTest.swift in Sources */,
 				13F7CF001CE8F73900CB61C6 /* AsthmaHelperUITests.swift in Sources */,
+				135726691D6BB5B50074B1C6 /* ChartUIViewTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.asthmaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "590bb18e-043f-4ab1-bb99-4f712f349a47";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -509,7 +529,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.asthmaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "590bb18e-043f-4ab1-bb99-4f712f349a47";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
