@@ -13,6 +13,7 @@ class TrendTableViewController: UITableViewController {
     
     @IBOutlet weak var ChartView: ChartUIView!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     let chartReadings = ChartReadings.init()
     
     var trendInterval = 7
@@ -21,8 +22,14 @@ class TrendTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        renderChartViewStaticContent()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(chartViewSetup), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        segmentedControl.addTarget(self, action: #selector(onTrendIntervalChange), forControlEvents: .ValueChanged)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        ChartView.layoutIfNeeded()
+        renderChartViewStaticContent()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -32,7 +39,7 @@ class TrendTableViewController: UITableViewController {
     
     func chartViewSetup() {
         ChartView.window?.frame.size.width = (self.view.window?.frame.size.width)!
-        
+        ChartView.centralLabel.text = "loading"
         let successHandler = {self.prepareAndRender()}
         let FEVfailHandler = {self.displayFetchingError("FEV")}
         chartReadings.getFEVchartReadings(trendInterval, successHandler: successHandler, failHandler: FEVfailHandler)
@@ -54,7 +61,7 @@ class TrendTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 6
     }
     
     override func tableView( tableView: UITableView,
@@ -71,10 +78,10 @@ class TrendTableViewController: UITableViewController {
         
         let FEVreadingPts = chartReadings.FEVlist.map{$0.reading}
         //tmp
-        for var i in 0..<chartReadings.FEVlist.count {
+        for i in 0..<chartReadings.FEVlist.count {
             print("the FEV list reading at \(i) is \(chartReadings.FEVlist[i])")
         }
-        for var i in 0..<FEVreadingPts.count {
+        for i in 0..<FEVreadingPts.count {
             print("the FEVreadingPts at \(i) is \(FEVreadingPts[i])")
         }
         //end tmp
@@ -87,7 +94,7 @@ class TrendTableViewController: UITableViewController {
         else if FEVreadingPts.maxElement() >= avgFVC {
             centralText = "Wrong data: FVC must be greater than FEV"
         }
-        else if FEVreadingPts.minElement() == -1 && FEVreadingPts.maxElement() <= 0 {
+        else if FEVreadingPts.minElement() == -1 && FEVreadingPts.maxElement() < 0 {
             centralText = "No FEV data"
         }
         else {
@@ -101,32 +108,66 @@ class TrendTableViewController: UITableViewController {
                 graphPts.append(0.2 + 0.01 * Double(i))
             } */
             // end tmp
-            ChartView.setNeedsDisplay()
         }
+        ChartView.setNeedsDisplay()
         renderChartView(centralText, graphPts: graphPts)
     }
     
     func renderChartViewStaticContent() {
         ChartView.titleLabel.text = "FEV%"
         ChartView.yUnitLabel.text = "(%)"
-        ChartView.centralLabel.text = "loading"
+        renderChartViewXaxisLabels()
+    }
+    
+    func renderChartViewXaxisLabels() {
+        // render x labels based on trend Interval
+        let width = ChartView.frame.size.width
+        let height = ChartView.frame.size.height
+        ChartView.setXaxis(width, height: height, intervalCount: trendInterval, labelClosure: {
+            let calendar = NSCalendar.currentCalendar()
+            
+            let resultDate = calendar.dateByAddingUnit(.Day, value: -self.trendInterval + $0 + 1, toDate: NSDate(), options: [])!
+            let df = NSDateFormatter()
+            df.dateFormat = "MMM dd"
+            print("the MMM dd is \(df.stringFromDate(resultDate))")
+            return df.stringFromDate(resultDate)
+        } )
     }
     
     func renderChartView(centralText: String, graphPts: [Double]) {
         ChartView.centralLabel.text = centralText
         ChartView.graphPts = graphPts
-        // render x labels 
+        /*
+        // render x labels based on FEV readings date
         let width = ChartView.frame.size.width
         let height = ChartView.frame.size.height
-        ChartView.setXaxis(width, height: height, labelClosure: {
+        
+        ChartView.setXaxis(width, height: height, intervalCount:graphPts.count, labelClosure: {
             
             let resultDate = self.chartReadings.FEVlist[$0].date
             let df = NSDateFormatter()
             df.dateFormat = "MMM dd"
             return df.stringFromDate(resultDate)
-        } )
-        
-        
+        } ) 
+        */
+    }
+    
+    func onTrendIntervalChange() {
+        let selctedTitle = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)!
+        switch selctedTitle {
+        case "1 Week":
+            trendInterval = 7
+        case "2 Week":
+            trendInterval = 14
+        case "1 Month":
+            trendInterval = 30
+        case "3 Month":
+            trendInterval = 90
+        default:
+            trendInterval = 7
+        }
+        renderChartViewXaxisLabels()
+        chartViewSetup()
     }
 
     /*

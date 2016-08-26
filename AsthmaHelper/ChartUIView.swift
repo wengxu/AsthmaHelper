@@ -36,7 +36,7 @@ class ChartUIView: UIView {
     
     let yIntervalCount = 5
     
-    var yReadingLabels = [UILabel]()
+    var xReadingLabels = [UILabel]()
     
     var yRange = NSRange.init(location: 0, length: 100)
     
@@ -99,22 +99,23 @@ class ChartUIView: UIView {
     
     func setAxis(width: CGFloat, height: CGFloat) {
         
-        setXaxis(width, height: height, labelClosure: {String($0)})
+        setXaxis(width, height: height, intervalCount: 0, labelClosure: {String($0)})
         
         setYaxis(width, height: height)
     }
     
-    func setXaxis(width: CGFloat, height: CGFloat, labelClosure: (Int) -> String) {
+    func setXaxis(width: CGFloat, height: CGFloat, intervalCount: Int, labelClosure: (Int) -> String) {
         
+        print("the x axis label count before is \(xReadingLabels.count)")
+        print("the intervalCount in setXaxis is \(intervalCount)")
         let yCoord = margin[2] == 0 ? height - CGFloat(10) : height - margin[2] / CGFloat(2)
         let startPt = CGPoint(x: margin[3], y: yCoord)
         let endPt = CGPoint(x: width - margin[1], y: yCoord)
-        // add x reading labels that render based on number of graphPts
-        if graphPts.count > 1 {
-            let xRange = NSRange.init(location: 0, length: graphPts.count - 1)
-            let intervalRemainder:[Int] = getIntervalCount(xRange.length)
-            let intervalCount = intervalRemainder[0]
-            let remainder = intervalRemainder[1]
+        removeXreadingLabels()
+        // add x reading labels that render based on number of intervalCounts
+        if intervalCount > 1 {
+            let xRange = NSRange.init(location: 0, length: intervalCount - 1)
+            let (intervalCount, remainder) = getIntervalCount(xRange.length)
             let intervalLength = (xRange.length - remainder) / intervalCount
             let viewLength = endPt.x - startPt.x
             let viewUnitInvervalLength = viewLength / CGFloat(xRange.length)
@@ -130,11 +131,19 @@ class ChartUIView: UIView {
                     xReading = xReading + remainder
                 }
                 let text = labelClosure(xReading)
+                // tmp
+                if i == intervalCount {
+                    var a = 0
+                    a = a + 1
+                }
+                // end tmp
                 let xReadingLabel = createReadingLabelAt(labelCenter, text: text)
+                xReadingLabels.append(xReadingLabel)
                 addSubview(xReadingLabel)
-                print("the x axis label font size is \(xReadingLabel.font.pointSize)")
             }
         }
+        
+        print("the x axis label count after is \(xReadingLabels.count)")
         
     }
     
@@ -161,23 +170,30 @@ class ChartUIView: UIView {
     
     // get the interval count for x-axis readings
     // return [intervalCount, remainder]
-    func getIntervalCount(length: Int) -> [Int] {
-        var result = [0, 0]
+    func getIntervalCount(length: Int) -> (Int, Int) {
+        var result = (0, 0)
         let maxIntervalCount = 4
         if length <= maxIntervalCount - 1 {
-            result = [length, 0]
+            result = (length, 0)
         } else {
             for i in (2...maxIntervalCount).reverse() {
                 // remainder == 0 or 1 could be optimal division 
                 // guaranteed to find result since the last i is 2
                 let rem = length % i
                 if rem == 0 || rem == 1 {
-                    result = [i, rem]
+                    result = (i, rem)
                     break
                 }
             }
         }
         return result
+    }
+    
+    func removeXreadingLabels() {
+        while xReadingLabels.count > 0 {
+            let labelView = xReadingLabels.popLast()
+            labelView?.removeFromSuperview()
+        }
     }
     
     func createReadingLabelAt(center: CGPoint, text: String) -> UILabel {
@@ -191,6 +207,9 @@ class ChartUIView: UIView {
         readingLabel.adjustsFontSizeToFitWidth = true
         readingLabel.frame.size.width = tmpFrame.size.width
         readingLabel.textAlignment = NSTextAlignment.Center
+        // tmp 
+        var readingLabelFrameSize = readingLabel.frame.size
+        // end tmp
         return readingLabel
     }
     
