@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		131AD9E11D5C3699005BEDB9 /* FEVreadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131AD9E01D5C3699005BEDB9 /* FEVreadings.swift */; };
 		134E14E11D6617D000139F62 /* ControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E14E01D6617D000139F62 /* ControllerUtil.swift */; };
 		135726691D6BB5B50074B1C6 /* ChartUIViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135726681D6BB5B50074B1C6 /* ChartUIViewTest.swift */; };
 		139A6A5E1D64A350009C047A /* ReadingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139A6A5D1D64A350009C047A /* ReadingsTest.swift */; };
@@ -18,12 +17,12 @@
 		13BD39DF1CF683BE00262EEF /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BD39DE1CF683BE00262EEF /* Reading.swift */; };
 		13BD39E31CF6A52000262EEF /* FEVreadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BD39E21CF6A52000262EEF /* FEVreadingListTableViewController.swift */; };
 		13BED9771D67563500977907 /* TrendViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BED9761D67563500977907 /* TrendViewControllerTest.swift */; };
+		13C4C31A1D7336BC00F0CBC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C4C3181D7336BC00F0CBC9 /* Main.storyboard */; };
 		13C8382E1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */; };
 		13C838351CF3DB6400B3F383 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C838341CF3DB6400B3F383 /* HealthKit.framework */; };
-		13E5E7AD1D5EC03700319584 /* FEVreadingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5E7AC1D5EC03700319584 /* FEVreadingsTest.swift */; };
+		13CBC1B51D732C4300C1E305 /* AuthChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CBC1B41D732C4300C1E305 /* AuthChecker.swift */; };
 		13E5E7AF1D6164B900319584 /* Readings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E5E7AE1D6164B900319584 /* Readings.swift */; };
 		13F7CEDE1CE8F73900CB61C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F7CEDD1CE8F73900CB61C6 /* AppDelegate.swift */; };
-		13F7CEE51CE8F73900CB61C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F7CEE31CE8F73900CB61C6 /* Main.storyboard */; };
 		13F7CEE71CE8F73900CB61C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F7CEE61CE8F73900CB61C6 /* Assets.xcassets */; };
 		13F7CEEA1CE8F73900CB61C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F7CEE81CE8F73900CB61C6 /* LaunchScreen.storyboard */; };
 		13F7CEF51CE8F73900CB61C6 /* AsthmaHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F7CEF41CE8F73900CB61C6 /* AsthmaHelperTests.swift */; };
@@ -53,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		131AD9E01D5C3699005BEDB9 /* FEVreadings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadings.swift; sourceTree = "<group>"; };
 		134E14E01D6617D000139F62 /* ControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerUtil.swift; sourceTree = "<group>"; };
 		135726681D6BB5B50074B1C6 /* ChartUIViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartUIViewTest.swift; sourceTree = "<group>"; };
 		139A6A5D1D64A350009C047A /* ReadingsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsTest.swift; sourceTree = "<group>"; };
@@ -64,14 +62,14 @@
 		13BD39DE1CF683BE00262EEF /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		13BD39E21CF6A52000262EEF /* FEVreadingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadingListTableViewController.swift; sourceTree = "<group>"; };
 		13BED9761D67563500977907 /* TrendViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendViewControllerTest.swift; sourceTree = "<group>"; };
+		13C4C3191D7336BC00F0CBC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadingTableViewController.swift; sourceTree = "<group>"; };
 		13C838341CF3DB6400B3F383 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		13C838361CF3DB6400B3F383 /* AsthmaHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AsthmaHelper.entitlements; sourceTree = "<group>"; };
-		13E5E7AC1D5EC03700319584 /* FEVreadingsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEVreadingsTest.swift; sourceTree = "<group>"; };
+		13CBC1B41D732C4300C1E305 /* AuthChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthChecker.swift; sourceTree = "<group>"; };
 		13E5E7AE1D6164B900319584 /* Readings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Readings.swift; sourceTree = "<group>"; };
 		13F7CEDA1CE8F73900CB61C6 /* AsthmaHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F7CEDD1CE8F73900CB61C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		13F7CEE41CE8F73900CB61C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13F7CEE61CE8F73900CB61C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13F7CEE91CE8F73900CB61C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13F7CEEB1CE8F73900CB61C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			children = (
 				13BD39DE1CF683BE00262EEF /* Reading.swift */,
 				13E5E7AE1D6164B900319584 /* Readings.swift */,
-				131AD9E01D5C3699005BEDB9 /* FEVreadings.swift */,
 				139A6A5F1D64B244009C047A /* ChartReadings.swift */,
 			);
 			name = Model;
@@ -141,6 +138,7 @@
 				13C8382D1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift */,
 				139CABAA1D12285800C9CA9A /* TrendTableViewController.swift */,
 				134E14E01D6617D000139F62 /* ControllerUtil.swift */,
+				13CBC1B41D732C4300C1E305 /* AuthChecker.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -175,7 +173,7 @@
 				133D42871D471DD50096BC72 /* Model */,
 				13C838361CF3DB6400B3F383 /* AsthmaHelper.entitlements */,
 				13F7CEDD1CE8F73900CB61C6 /* AppDelegate.swift */,
-				13F7CEE31CE8F73900CB61C6 /* Main.storyboard */,
+				13C4C3181D7336BC00F0CBC9 /* Main.storyboard */,
 				13C838331CF1FE4B00B3F383 /* Controller */,
 				13F7CEE61CE8F73900CB61C6 /* Assets.xcassets */,
 				13F7CEE81CE8F73900CB61C6 /* LaunchScreen.storyboard */,
@@ -191,7 +189,6 @@
 			children = (
 				13F7CEF41CE8F73900CB61C6 /* AsthmaHelperTests.swift */,
 				13F7CEF61CE8F73900CB61C6 /* Info.plist */,
-				13E5E7AC1D5EC03700319584 /* FEVreadingsTest.swift */,
 				139A6A5D1D64A350009C047A /* ReadingsTest.swift */,
 				139A6A611D64B379009C047A /* ChartReadingsTest.swift */,
 			);
@@ -321,9 +318,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C4C31A1D7336BC00F0CBC9 /* Main.storyboard in Resources */,
 				13F7CEEA1CE8F73900CB61C6 /* LaunchScreen.storyboard in Resources */,
 				13F7CEE71CE8F73900CB61C6 /* Assets.xcassets in Resources */,
-				13F7CEE51CE8F73900CB61C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,11 +348,11 @@
 				13BD39E31CF6A52000262EEF /* FEVreadingListTableViewController.swift in Sources */,
 				13FF0A081CEFA8E9003DFDDF /* UserModel.xcdatamodeld in Sources */,
 				13FF0A0B1CEFAF53003DFDDF /* User+CoreDataProperties.swift in Sources */,
+				13CBC1B51D732C4300C1E305 /* AuthChecker.swift in Sources */,
 				139CABA51D10C9AD00C9CA9A /* ChartUIView.swift in Sources */,
 				13C8382E1CF1E7EF00B3F383 /* FEVreadingTableViewController.swift in Sources */,
 				13BD39DF1CF683BE00262EEF /* Reading.swift in Sources */,
 				13F7CF881CEC07CE00CB61C6 /* MyInfoTableViewController.swift in Sources */,
-				131AD9E11D5C3699005BEDB9 /* FEVreadings.swift in Sources */,
 				13F7CEDE1CE8F73900CB61C6 /* AppDelegate.swift in Sources */,
 				134E14E11D6617D000139F62 /* ControllerUtil.swift in Sources */,
 				13FF0A0E1CEFAFDE003DFDDF /* DataController.swift in Sources */,
@@ -370,7 +367,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E5E7AD1D5EC03700319584 /* FEVreadingsTest.swift in Sources */,
 				139A6A621D64B379009C047A /* ChartReadingsTest.swift in Sources */,
 				13F7CEF51CE8F73900CB61C6 /* AsthmaHelperTests.swift in Sources */,
 				139A6A5E1D64A350009C047A /* ReadingsTest.swift in Sources */,
@@ -403,10 +399,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		13F7CEE31CE8F73900CB61C6 /* Main.storyboard */ = {
+		13C4C3181D7336BC00F0CBC9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				13F7CEE41CE8F73900CB61C6 /* Base */,
+				13C4C3191D7336BC00F0CBC9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

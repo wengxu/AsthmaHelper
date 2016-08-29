@@ -77,14 +77,6 @@ class TrendTableViewController: UITableViewController {
     func prepareAndRender() {
         
         let FEVreadingPts = chartReadings.FEVlist.map{$0.reading}
-        //tmp
-        for i in 0..<chartReadings.FEVlist.count {
-            print("the FEV list reading at \(i) is \(chartReadings.FEVlist[i])")
-        }
-        for i in 0..<FEVreadingPts.count {
-            print("the FEVreadingPts at \(i) is \(FEVreadingPts[i])")
-        }
-        //end tmp
         let avgFVC = chartReadings.avgFVC.reading
         var centralText = ""
         var graphPts:[Double] = []
@@ -99,7 +91,7 @@ class TrendTableViewController: UITableViewController {
         }
         else {
             graphPts = FEVreadingPts.map({$0 / avgFVC})
-            // tmp 
+            // tmp
             /*
             graphPts = [0, 0.5, 0.98, 1]
             
@@ -129,7 +121,6 @@ class TrendTableViewController: UITableViewController {
             let resultDate = calendar.dateByAddingUnit(.Day, value: -self.trendInterval + $0 + 1, toDate: NSDate(), options: [])!
             let df = NSDateFormatter()
             df.dateFormat = "MMM dd"
-            print("the MMM dd is \(df.stringFromDate(resultDate))")
             return df.stringFromDate(resultDate)
         } )
     }
@@ -137,19 +128,6 @@ class TrendTableViewController: UITableViewController {
     func renderChartView(centralText: String, graphPts: [Double]) {
         ChartView.centralLabel.text = centralText
         ChartView.graphPts = graphPts
-        /*
-        // render x labels based on FEV readings date
-        let width = ChartView.frame.size.width
-        let height = ChartView.frame.size.height
-        
-        ChartView.setXaxis(width, height: height, intervalCount:graphPts.count, labelClosure: {
-            
-            let resultDate = self.chartReadings.FEVlist[$0].date
-            let df = NSDateFormatter()
-            df.dateFormat = "MMM dd"
-            return df.stringFromDate(resultDate)
-        } ) 
-        */
     }
     
     func onTrendIntervalChange() {

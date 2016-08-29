@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import HealthKit
 
 class ControllerUtil: NSObject {
     static func displayAlert(controller: UIViewController,title: String, msg: String) -> Void {

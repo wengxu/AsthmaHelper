@@ -14,15 +14,10 @@ class FEVreadingListTableViewController: UITableViewController {
 
     
     // to store either FEV or FVC readings
-    var readings = [Reading]()
-    // to be used to access healthkit database
-    var healthStore = HKHealthStore()
+    var readings: Readings?
+    
     // to store the current sample to be deleted
     var currentSample : HKSample?
-    
-    let FEVhealthType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierForcedExpiratoryVolume1)!
-    
-    let FVChealthType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierForcedVitalCapacity)!
     
     // to determine if it is FEV data or FVC data 
     var dataType: HKSampleType?
@@ -34,14 +29,17 @@ class FEVreadingListTableViewController: UITableViewController {
             fatalError("Error: unable to get tab title")
         }
         if barTitle == "FEV Data Reading" {
-            self.dataType = FEVhealthType
+            self.dataType = Readings.FEVhealthType
             self.navigationItem.title = barTitle
         }
         else {
-            self.dataType = FVChealthType
+            self.dataType = Readings.FVChealthType
             self.navigationItem.title = barTitle
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(readingRefresh), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        
+        readings = Readings(healthType: dataType!)
         navigationItem.leftBarButtonItem = editButtonItem()
         
         // Uncomment the following line to preserve selection between presentations
@@ -51,14 +49,19 @@ class FEVreadingListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    func readingRefresh() {
+        if Readings.healthStore.authorizationStatusForType(dataType!) == HKAuthorizationStatus.SharingAuthorized {
+            // query for FEV reading data
+            readings?.getReadings({self.tableView.reloadData()})
+        } else {
+            let authChecker = AuthChecker()
+            authChecker.askPermission(self)
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if self.healthStore.authorizationStatusForType(dataType!) == HKAuthorizationStatus.SharingAuthorized {
-            // query for FEV reading data
-            queryAndUpdate()
-        }
-        print("the size of readings is \(readings.count)")
-        
+        readingRefresh()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,105 +78,19 @@ class FEVreadingListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return readings.count
+        return (readings?.list.count)!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         // Configure the cell...
-        let reading = readings[indexPath.row]
+        let reading = (readings?.list[indexPath.row])!
         cell.textLabel?.text = reading.getDateAndTimeStr()
         cell.detailTextLabel?.text = String(reading.reading) + " L"
         return cell
     }
 
-    
-    
-    
-    // query for FEV data and update FEVreadings[]
-    func queryAndUpdate() {
-        let calendar = NSCalendar.currentCalendar()
-        let endDate = NSDate()
-        let startDate = calendar.dateByAddingUnit(.Day, value: -90, toDate: endDate, options: [])
-        /*
-        guard let sampleType = dataType else {
-            fatalError("*** This method should never fail ***")
-        } */
-        guard let sampleType = dataType else { fatalError("the datatype is not assigne.") }
-        let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: [])
-        let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil, resultsHandler: {(query, results, error) -> Void in
-            guard let samples = results as? [HKQuantitySample] else {
-                //print(String(error))
-                fatalError("An error occured fetching the user's Data.  The error was: \(error?.localizedDescription)");
-            }
-            dispatch_async(dispatch_get_main_queue()) {
-                self.readings.removeAll()
-                var i = 0
-                for sample in samples {
-                    i += 1
-                    let location = ((sample.metadata?["location"]) != nil) ? sample.metadata?["location"] as? String : ""
-                    let date = sample.startDate
-                    let reading = sample.quantity.doubleValueForUnit(HKUnit.literUnit())
-                    let id = sample.UUID
-                    let readingItem = Reading.init(date: date, location: location!, reading: reading, id: id)
-                    self.readings.append(readingItem)
-                }
-                print("the sample loop is executed \(i) times ")
-                self.tableView.reloadData()
-            }
-        })
-        
-        healthStore.executeQuery(query)
-    }
-    
-    func deleteDatafromHealthStore(reading: Reading, indexPath: NSIndexPath) -> Void {
-        let calendar = NSCalendar.currentCalendar()
-        let startDate = reading.date
-        let endDate = calendar.dateByAddingUnit(.Second, value: 1, toDate: startDate, options: [])
-        guard let sampleType = dataType else {
-            fatalError("*** This method should never fail ***")
-        }
-        let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: [])
-        let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil, resultsHandler: {(query, results, error) -> Void in
-            guard let samples = results as? [HKQuantitySample] else {
-                //print(String(error))
-                fatalError("An error occured fetching the user's Data.  The error was: \(error?.localizedDescription)");
-            }
-            dispatch_async(dispatch_get_main_queue()) {
-                //self.currentSample = samples.first
-                print(samples.first)
-                print(samples.first?.sourceRevision.source)
-                print(samples.first?.sourceRevision.source == HKSource.defaultSource())
-                if samples.first?.sourceRevision.source == HKSource.defaultSource() {
-                    self.healthStore.deleteObject(samples.first!, withCompletion: {(success, error) -> Void in
-                        dispatch_async(dispatch_get_main_queue()) {
-                            if !success {
-                                self.displayAlert("Delete Data", msg: "Error deleting data: \(error)")
-                                print("Error deleting data: \(error)")
-                                
-                                abort()
-                            }
-                            else {
-                                self.readings.removeAtIndex(indexPath.row)
-                                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                                print("data deleted")
-                            }
-                        }
-                        
-                    })
-                }
-                else {
-                    self.displayAlert("Delete Data", msg: "Error deleting data: Cannot delete data that is not generated by this app. \n The data can be deleted inside Apple's Health app")
-                }
-                
-            }
-        })
-        healthStore.executeQuery(query)
-        
-        
-    }
-    
     
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -187,10 +104,22 @@ class FEVreadingListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            let toBeDeletedReading = readings[indexPath.row]
-            deleteDatafromHealthStore(toBeDeletedReading, indexPath: indexPath)
-            
-            
+            let toBeDeletedReading = (readings?.list[indexPath.row])!
+            if toBeDeletedReading.source == HKSource.defaultSource() {
+                let successClosure = {
+                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }
+                let failClosure = { (error: NSError?) -> Void in
+                    var msg = "Error deleting data"
+                    if let error = error {
+                        msg = msg + ": " + error.localizedDescription
+                    }
+                    ControllerUtil.displayAlert(self, title: "Error", msg: msg )
+                }
+                readings?.deleteReading(toBeDeletedReading.id, successHandler: successClosure, failHandler: failClosure)
+            } else {
+                ControllerUtil.displayAlert(self, title: "Delete Data", msg: "Error deleting data: Cannot delete data that is not generated by this app. \n The data can be deleted inside Apple's Health app")
+            }
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -232,7 +161,7 @@ class FEVreadingListTableViewController: UITableViewController {
             readingDetailViewController.dataType = dataType
             if let selectedCell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPathForCell(selectedCell)
-                let selectedReading = readings[(indexPath?.row)!]
+                let selectedReading = readings?.list[(indexPath?.row)!]
                 readingDetailViewController.reading = selectedReading
             }
         }

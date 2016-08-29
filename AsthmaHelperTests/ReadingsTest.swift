@@ -57,7 +57,7 @@ class ReadingsTest: XCTestCase {
             expectation2.fulfill()
         }
         let reading = Reading.init(date: NSDate(), location: "", reading: 2.1, id: NSUUID.init())
-        FEV.createReading(reading, successHandler: successClousure, failHandler: {})
+        FEV.createReading(reading, successHandler: successClousure, failHandler: {(error: NSError?) -> Void in })
         waitForExpectationsWithTimeout(5, handler: {error in
             XCTAssertEqual(initialListCount + 1, FEV.list.count)
             let last = FEV.list.last!
@@ -80,7 +80,7 @@ class ReadingsTest: XCTestCase {
         waitForExpectationsWithTimeout(5, handler: {error in})
         let expectation2 = expectationWithDescription("wait for async")
         let successClousure = {expectation2.fulfill()}
-        FEV.deleteReading(deleteFEVuuid, successHandler: successClousure, failHandler: {})
+        FEV.deleteReading(deleteFEVuuid, successHandler: successClousure, failHandler: {(error: NSError?) -> Void in })
         waitForExpectationsWithTimeout(5, handler: { error in
             XCTAssertEqual(initialListCount - 1, FEV.list.count)
             XCTAssertNil(FEV.list.indexOf({$0.id.isEqual(deleteFEVuuid)}))

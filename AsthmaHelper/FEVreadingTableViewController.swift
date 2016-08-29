@@ -25,15 +25,9 @@ class FEVreadingTableViewController: UITableViewController, CLLocationManagerDel
         navigationController?.popViewControllerAnimated(true)
     }
     let locMan: CLLocationManager = CLLocationManager()
-    // to be used to access healthkit database
-    var healthStore = HKHealthStore()
     
     // to store the FEVreading object that is associated with the current view
     var reading: Reading?
-    
-    let FEVhealthType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierForcedExpiratoryVolume1)!
-    
-    let FVChealthType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierForcedVitalCapacity)!
     
     // to determine if it is FEV data or FVC data
     var dataType: HKSampleType?
@@ -136,7 +130,7 @@ class FEVreadingTableViewController: UITableViewController, CLLocationManagerDel
                 // if conversion success
                 if error == nil {
                     let addressDic = placemarks![0].addressDictionary
-                    print(addressDic)
+                    //print(addressDic)
                     if let street = addressDic!["Street"], city = addressDic!["City"], state = addressDic!["State"], zip = addressDic!["ZIP"] {
                         self.locationTextField.text = "\(street), \(city), \(state) \(zip)"
                     }
@@ -145,7 +139,6 @@ class FEVreadingTableViewController: UITableViewController, CLLocationManagerDel
             })
             //locationTableViewCell.detailTextLabel?.text = "lat: \(newLocation.coordinate.latitude), long: \(newLocation.coordinate.longitude)"
             locMan.stopUpdatingLocation()
-            print("lcoation did update is called")
             FEVreadingTextField.becomeFirstResponder()
         }
      }
@@ -191,27 +184,6 @@ class FEVreadingTableViewController: UITableViewController, CLLocationManagerDel
     func clearInputUIs() -> Void {
         locationTextField.resignFirstResponder()
         FEVreadingTextField.resignFirstResponder()
-    }
-    
-    // healthKit 
-    func saveDataIntoHealthStore(reading: Double, recordDate: NSDate, locationStr: String) -> Void {
-        // save the user's FEV reading into HealthKit
-        //let FEVvolumeType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierForcedExpiratoryVolume1)
-        let literUnit = HKUnit.literUnit()
-        let quantity = HKQuantity.init(unit: literUnit, doubleValue: reading)
-        //let df = NSDateFormatter()
-        //df.dateFormat = "MMM dd, yyyy h:mm a"
-        //let recordDate = df.dateFromString(dateStr)
-        let quantitySample = HKQuantitySample.init(type: dataType as! HKQuantityType, quantity: quantity, startDate: recordDate, endDate: recordDate, device: HKDevice.localDevice(), metadata: ["location": locationStr])
-        healthStore.saveObject(quantitySample, withCompletion: {(success, error) -> Void in
-            if !success {
-                self.displayAlert("Saving Data", msg: "Error Saving data: \(error)")
-                abort()
-            }
-            else {
-                print("data saved")
-            }
-        })
     }
     
     // custom display alert function
@@ -279,8 +251,18 @@ class FEVreadingTableViewController: UITableViewController, CLLocationManagerDel
         if sender === addButton {
             reading?.location = locationTextField.text!
             reading?.reading = Double(FEVreadingTextField.text!)!
-            saveDataIntoHealthStore((reading?.reading)!, recordDate: (reading?.date)!, locationStr: (reading?.location)!)
-            print("data saved to HealthKit")
+            let FEVreadingListController = segue.destinationViewController as! FEVreadingListTableViewController
+            let successClosure = {
+                FEVreadingListController.tableView.reloadData()
+            }
+            let failClosure = {(error: NSError?) -> Void in
+                var msg = "Error deleting data"
+                if let error = error {
+                    msg = msg + ": " + error.localizedDescription
+                }
+                ControllerUtil.displayAlert(self, title: "Error", msg: msg)
+            }
+            FEVreadingListController.readings?.createReading(reading!, successHandler: successClosure, failHandler: failClosure)
         }
     
     }

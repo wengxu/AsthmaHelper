@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import HealthKit
 
 class Reading: NSObject {
     var id: NSUUID
     var date: NSDate
     var location: String
     var reading: Double
+    var source: HKSource?
     
     override var description: String {return " ** Reading: \(String(reading)) and Date: \(String(date)) ** "}
     

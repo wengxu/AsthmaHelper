@@ -106,8 +106,6 @@ class ChartUIView: UIView {
     
     func setXaxis(width: CGFloat, height: CGFloat, intervalCount: Int, labelClosure: (Int) -> String) {
         
-        print("the x axis label count before is \(xReadingLabels.count)")
-        print("the intervalCount in setXaxis is \(intervalCount)")
         let yCoord = margin[2] == 0 ? height - CGFloat(10) : height - margin[2] / CGFloat(2)
         let startPt = CGPoint(x: margin[3], y: yCoord)
         let endPt = CGPoint(x: width - margin[1], y: yCoord)
@@ -131,19 +129,12 @@ class ChartUIView: UIView {
                     xReading = xReading + remainder
                 }
                 let text = labelClosure(xReading)
-                // tmp
-                if i == intervalCount {
-                    var a = 0
-                    a = a + 1
-                }
-                // end tmp
+                
                 let xReadingLabel = createReadingLabelAt(labelCenter, text: text)
                 xReadingLabels.append(xReadingLabel)
                 addSubview(xReadingLabel)
             }
         }
-        
-        print("the x axis label count after is \(xReadingLabels.count)")
         
     }
     
@@ -163,7 +154,6 @@ class ChartUIView: UIView {
             let text = String(format: "%.0f", yReading)
             let yReadingLabel = createReadingLabelAt(labelCenter, text: text)
             addSubview(yReadingLabel)
-            print("the y axis label font size is \(yReadingLabel.font.pointSize)")
         }
         return intervalCount
     }
@@ -207,9 +197,6 @@ class ChartUIView: UIView {
         readingLabel.adjustsFontSizeToFitWidth = true
         readingLabel.frame.size.width = tmpFrame.size.width
         readingLabel.textAlignment = NSTextAlignment.Center
-        // tmp 
-        var readingLabelFrameSize = readingLabel.frame.size
-        // end tmp
         return readingLabel
     }
     
@@ -220,14 +207,6 @@ class ChartUIView: UIView {
             return self.margin[3] + CGFloat(column) * spacer
         }
         let columnYpoint = { (column: Int) -> CGFloat in
-            /*
-            if self.graphPts[column] < 0 {
-                return -1
-            }
-            else {
-                // need to flip the height
-                return height - (height * CGFloat(self.graphPts[column]))
-            }*/
             self.graphPts[column] < 0 ? -1 : height - (height * CGFloat(self.graphPts[column]))
         }
         // draw the line graph
@@ -245,13 +224,13 @@ class ChartUIView: UIView {
             if columnYpoint(i) >= 0 && !firstPointFound {
                 firstPoint = CGPoint(x: columnXpoint(i), y: columnYpoint(i))
                 graphPath.moveToPoint(firstPoint)
-                print("the first pt is \(CGPoint(x: columnXpoint(i), y: columnYpoint(i)))")
+                //print("the first pt is \(CGPoint(x: columnXpoint(i), y: columnYpoint(i)))")
                 firstPointFound = true
                 continue
             }
             if columnYpoint(i) >= 0 && firstPointFound {
                 let nextPoint = CGPoint(x: columnXpoint(i), y: columnYpoint(i))
-                print("the pt is \(CGPoint(x: columnXpoint(i), y: columnYpoint(i)))")
+                //print("the pt is \(CGPoint(x: columnXpoint(i), y: columnYpoint(i)))")
                 graphPath.addLineToPoint(nextPoint)
                 needsShadow = true
             }
@@ -299,15 +278,6 @@ class ChartUIView: UIView {
             point.y -= 5.0/2
             let circle = UIBezierPath(ovalInRect: CGRect(origin: point, size: CGSize(width: 5, height: 5)))
             circle.fill()
-            // draw x labesl
-            /*
-            let percentLabel = UILabel.init(frame: CGRectMake(columnXpoint(i) - 14, height - 22, 35, 22))
-            percentLabel.adjustsFontSizeToFitWidth = true
-            let df = NSDateFormatter()
-            df.dateFormat = "MMM dd"
-            percentLabel.text = df.stringFromDate(self.FEVdataPoints[i].date)
-            self.addSubview(percentLabel)
-            */
         }
     }
     
@@ -319,13 +289,6 @@ class ChartUIView: UIView {
             let yHeight = CGFloat(i) * yIntervalViewLength
             linePath.moveToPoint(CGPoint(x: margin[3], y: yHeight))
             linePath.addLineToPoint(CGPoint(x: width - margin[1], y: yHeight))
-            // draw y labesl
-            /*
-            let percentLabel = UILabel.init(frame: CGRectMake(0, CGFloat(i) * 0.2 * height - 15, 22, 22))
-            percentLabel.adjustsFontSizeToFitWidth = true
-            percentLabel.text = "\(100 - i * 20)%"
-            self.addSubview(percentLabel)
-            */
         }
         UIColor(white: 1.0, alpha: 0.5).setStroke()
         linePath.lineWidth = 1.0

@@ -58,7 +58,7 @@ class TrendViewControllerTest: XCTestCase {
     func testNoFVCDataLabel() {
         // delete all FVC data and try to test no FVC data label
         
-        let expectedText = "No FVC data"
+        //let expectedText = "No FVC data"
         //let chartModel = Readings(healthType: Readings.FEVhealthType)
         /*
         

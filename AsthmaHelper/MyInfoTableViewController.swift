@@ -104,24 +104,21 @@ class MyInfoTableViewController: UITableViewController, UITextFieldDelegate, UIP
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         currentTableCellRow = indexPath.row
         // respond based on the table cell clicked 
-        //print(NSString(format:"Hello, the section is %d and the row is %d", indexPath.section, indexPath.row))
         
         // setup nav bar buttons
         showNavBarButtons();
         
         switch indexPath.row {
         case 0:
-            print("first row is selected")
+            //print("first row is selected")
             clearInputUIs()
             nameTextField.becomeFirstResponder()
             //nameTextField.end
             break;
         case 1:
-            print("second row is selected")
+            //print("second row is selected")
             clearInputUIs()
             
-            //let daysInMonth = ([] + (1...31)).map{(number) -> String in return String(number)}
-            //let yearsInPicker = ([] + (currentYear-100...currentYear)).map{(number) -> String in return String(number)}
             let yearsInPicker = [] + (currentYear-100...currentYear)
             DOBpickerDataSource = [[] + (1...12),
                                    [] + (1...31),
@@ -153,7 +150,6 @@ class MyInfoTableViewController: UITableViewController, UITextFieldDelegate, UIP
             
             break;
         case 2:
-            print("third row (height) is selected")
             clearInputUIs()
             heightPickerDataSource = [[] + (0...9), [] + (0...11)]
             picker.tag = currentTableCellRow
