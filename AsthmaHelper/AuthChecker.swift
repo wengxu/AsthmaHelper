@@ -21,7 +21,7 @@ class AuthChecker: NSObject {
         return NSSet.init(objects: Readings.FEVhealthType, Readings.FVChealthType) as! Set<HKSampleType>
     }
     
-    func askPermission(controller: UIViewController) {
+    func askPermission(controller: UIViewController, askCompleteHandler: () -> Void) {
         // ask for Healthkit permission
         if HKHealthStore.isHealthDataAvailable() {
             let HKwriteDatatypes = healthDataTypesToWrite()
@@ -35,14 +35,17 @@ class AuthChecker: NSObject {
                 }
                 self.checkPermission("FEV", healthType: Readings.FEVhealthType, generalMsg: generalMsg, controller: controller)
                 self.checkPermission("FVC", healthType: Readings.FVChealthType, generalMsg: generalMsg, controller: controller)
-                
+                askCompleteHandler()
             })
+        } else {
+            ControllerUtil.displayAlert(controller, title: "Error", msg: "HealthKit not available, some functionality may not be working properly.")
         }
     }
     
     // this function checks given health data type permission and
     // generate alert if data access permission denied.
-    func checkPermission(typeStr: String, healthType: HKObjectType, generalMsg: String, controller: UIViewController) {
+    func checkPermission(typeStr: String, healthType: HKObjectType, generalMsg: String, controller: UIViewController) -> Bool {
+        var result = false
         let permissionResult = Readings.healthStore.authorizationStatusForType(healthType)
         switch permissionResult {
         case HKAuthorizationStatus.SharingDenied:
@@ -50,10 +53,27 @@ class AuthChecker: NSObject {
             ControllerUtil.displayAlert(controller, title: "Data Authentication", msg: msg)
         case HKAuthorizationStatus.SharingAuthorized:
             print(typeStr + " authorization granted")
+            result = true
         default:
             let msg = "Error process request. " + generalMsg
             ControllerUtil.displayAlert(controller, title: "Data Authentication", msg: msg)
         }
+        return result
+    }
+    
+    func FEVandFVCbothAuthorized() -> Bool {
+        var result = true
+        let healthTypeToCheck = [Readings.FEVhealthType, Readings.FVChealthType]
+        for type in healthTypeToCheck {
+            if !checkAuthStatusFor(type) {
+                result = false
+            }
+        }
+        return result
+    }
+    
+    func checkAuthStatusFor(healthType: HKSampleType) -> Bool {
+        return Readings.healthStore.authorizationStatusForType(healthType) == HKAuthorizationStatus.SharingAuthorized
     }
     
 }

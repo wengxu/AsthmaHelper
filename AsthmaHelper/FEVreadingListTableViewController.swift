@@ -50,12 +50,19 @@ class FEVreadingListTableViewController: UITableViewController {
     }
     
     func readingRefresh() {
+        let authChecker = AuthChecker()
+        let askCompleteHandler = {() -> Void in
+            if authChecker.checkAuthStatusFor(self.dataType!) {
+                self.readings?.getReadings({self.tableView.reloadData()})
+            }
+        }
         if Readings.healthStore.authorizationStatusForType(dataType!) == HKAuthorizationStatus.SharingAuthorized {
             // query for FEV reading data
-            readings?.getReadings({self.tableView.reloadData()})
+            //readings?.getReadings({self.tableView.reloadData()})
+            askCompleteHandler()
         } else {
-            let authChecker = AuthChecker()
-            authChecker.askPermission(self)
+            
+            authChecker.askPermission(self, askCompleteHandler: askCompleteHandler)
         }
     }
     

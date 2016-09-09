@@ -39,12 +39,22 @@ class TrendTableViewController: UITableViewController {
     
     func chartViewSetup() {
         ChartView.window?.frame.size.width = (self.view.window?.frame.size.width)!
-        ChartView.centralLabel.text = "loading"
-        let successHandler = {self.prepareAndRender()}
-        let FEVfailHandler = {self.displayFetchingError("FEV")}
-        chartReadings.getFEVchartReadings(trendInterval, successHandler: successHandler, failHandler: FEVfailHandler)
-        let FVCfailHandler = {self.displayFetchingError("FVC")}
-        chartReadings.getAvgFVC(FVCinterval, successHandler: successHandler, failHandler: FVCfailHandler)
+        
+        let authChecker = AuthChecker()
+        if authChecker.FEVandFVCbothAuthorized() {
+            ChartView.centralLabel.text = "loading"
+            let successHandler = {self.prepareAndRender()}
+            let FEVfailHandler = {self.displayFetchingError("FEV")}
+            chartReadings.getFEVchartReadings(trendInterval, successHandler: successHandler, failHandler: FEVfailHandler)
+            let FVCfailHandler = {self.displayFetchingError("FVC")}
+            chartReadings.getAvgFVC(FVCinterval, successHandler: successHandler, failHandler: FVCfailHandler)
+        } else {
+            // since HeakthKit auth pop up only happens at the first view
+            // -> will never exe successHandler
+            authChecker.askPermission(self, askCompleteHandler: {})
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
